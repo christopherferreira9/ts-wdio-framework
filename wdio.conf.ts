@@ -1,4 +1,5 @@
-import type { Options } from '@wdio/types'
+import type { Options } from '@wdio/types';
+const allure = require('allure-commandline')
 
 export const config: Options.Testrunner = {
     runner: 'local',
@@ -8,44 +9,49 @@ export const config: Options.Testrunner = {
         // for all available options
         tsNodeOpts: {
             transpileOnly: true,
-            project: 'test/tsconfig.json'
-        }
+            project: 'test/tsconfig.json',
+        },
         // tsconfig-paths is only used if "tsConfigPathsOpts" are provided, if you
         // do please make sure "tsconfig-paths" is installed as dependency
         // tsConfigPathsOpts: {
         //     baseUrl: './'
         // }
     },
+    baseUrl: 'http://localhost',
     hostname: 'localhost',
     port: 4444,
     path: '/wd/hub',
-    specs: [
-        './test/specs/**/*.ts'
-    ],
-    exclude: [
-    ],
+    specs: ['./test/specs/**/*.ts'],
+    exclude: [],
     maxInstances: 1,
-    capabilities: [{
-        maxInstances: 1,
-        browserName: 'chrome',
-        acceptInsecureCerts: true
-    }],
+    capabilities: [
+        {
+            maxInstances: 1,
+            browserName: 'chrome',
+            acceptInsecureCerts: true,
+        },
+    ],
     logLevel: 'info',
     bail: 0,
-    baseUrl: 'http://localhost',
     waitforTimeout: 10000,
     connectionRetryTimeout: 120000,
     connectionRetryCount: 3,
-    services: ['chromedriver', 'geckodriver'],
+    services: ['chromedriver'],
     framework: 'mocha',
-    reporters: ['spec', ['allure', {
-        outputDir: '/test-report/allure-result/',
-        disableWebdriverStepsReporting: true,
-        disableWebdriverScreenshotsReporting: false,
-    }]],
+    reporters: [
+        'spec',
+        [
+            'allure',
+            {
+                outputDir: 'allure-results',
+                disableWebdriverStepsReporting: true,
+                disableWebdriverScreenshotsReporting: false,
+            },
+        ],
+    ],
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000
+        timeout: 60000,
     },
     /**
      * Gets executed once before all workers get launched.
@@ -136,12 +142,11 @@ export const config: Options.Testrunner = {
     before() {
         browser.setWindowSize(1280, 720);
     },
-    afterTest: async function (test, context, { error, result, duration, passed, retries }) {
+    afterTest: async function (test: any, context: any, { passed }: any) {
         if (!passed) {
             await browser.takeScreenshot();
         }
     },
-
 
     /**
      * Hook that gets executed after the suite has ended
@@ -186,10 +191,31 @@ export const config: Options.Testrunner = {
     // onComplete: function(exitCode, config, capabilities, results) {
     // },
     /**
-    * Gets executed when a refresh happens.
-    * @param {String} oldSessionId session ID of the old session
-    * @param {String} newSessionId session ID of the new session
-    */
+     * Gets executed when a refresh happens.
+     * @param {String} oldSessionId session ID of the old session
+     * @param {String} newSessionId session ID of the new session
+     */
     // onReload: function(oldSessionId, newSessionId) {
     // }
-}
+    // onComplete: function () {
+    //     const reportError = new Error('Could not generate Allure report')
+    //     const generation = allure(['generate', 'allure-results', '--clean'])
+    //     return new Promise((resolve, reject) => {
+    //         const generationTimeout = setTimeout(
+    //             () => reject(reportError),
+    //             5000)
+
+    //         generation.on('exit', function (exitCode: any) {
+    //             clearTimeout(generationTimeout)
+
+    //             if (exitCode !== 0) {
+    //                 return reject(reportError)
+    //             }
+
+    //             console.log('Allure report successfully generated')
+    //             resolve(null);
+    //         })
+    //     })
+    // }
+
+};

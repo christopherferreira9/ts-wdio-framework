@@ -30,9 +30,9 @@
         "@commitlint/config-conventional": "^12.0.1",
         "@types/mocha": "^8.2.2",
         "@types/node": "^14.14.37",
-        "@typescript-eslint/eslint-plugin": "^4.20.0",
-        "@typescript-eslint/parser": "^4.20.0",
-        "eslint": "^7.23.0",
+        "@typescript-eslint/eslint-plugin": "^5.27.0",
+        "@typescript-eslint/parser": "^5.27.0",
+        "eslint": "^7.32.0",
         "husky": "^6.0.0",
         "prettier": "^2.2.1",
         "ts-node": "^10.8.0",
@@ -41,11 +41,9 @@
     "scripts": {
         "build": "npx del ./dist && npx tsc",
         "watch": "npx tsc -w",
-        "code:format": "eslint . --ext .ts && prettier --check \"src/**/*.ts*\" --write",
-        "commit": "cz",
-        "report:generate": "npx allure generate --clean ./test-report/allure-result/ -o ./test-report/allure-report",
-        "report:open": "npx allure open test-report/allure-report",
-        "tests:e2e": "npx del test-report && wdio ./dist/wdio.conf.js --spec ./dist/**/e2e/**/*.spec.js",
-        "tests:visualregression": "npx del test-report && wdio ./dist/wdio.conf.js --spec ./dist/**/visual-regression/**/*.spec.js"
+        "code:format": "eslint . --ext .ts && prettier --check \"*.ts*\" --write",
+        "report:generate": "npx allure generate --clean ./allure-results/ -o ./allure-reports",
+        "report:open": "npx allure open allure-reports",
+        "tests:e2e": "npx del allure-results && npx wdio run ./dist/wdio.conf.js --spec ./dist/test/specs/*.js"
     }
 }
