@@ -1,5 +1,4 @@
 import type { Options } from '@wdio/types';
-const allure = require('allure-commandline')
 
 export const config: Options.Testrunner = {
     runner: 'local',
@@ -21,14 +20,14 @@ export const config: Options.Testrunner = {
     hostname: 'localhost',
     port: 4444,
     path: '/wd/hub',
-    specs: ['./test/specs/**/*.ts'],
+    specs: [],
     exclude: [],
-    maxInstances: 1,
+    maxInstances: 2,
     capabilities: [
         {
-            maxInstances: 1,
-            browserName: 'chrome',
-            acceptInsecureCerts: true,
+            maxInstances: 2,
+            browserName: 'firefox',
+            //acceptInsecureCerts: true,
         },
     ],
     logLevel: 'info',
@@ -36,7 +35,7 @@ export const config: Options.Testrunner = {
     waitforTimeout: 10000,
     connectionRetryTimeout: 120000,
     connectionRetryCount: 3,
-    services: ['chromedriver'],
+    services: [],
     framework: 'mocha',
     reporters: [
         'spec',
@@ -59,6 +58,7 @@ export const config: Options.Testrunner = {
      * @param {Array.<Object>} capabilities list of capabilities details
      */
     // onPrepare: function (config, capabilities) {
+    //     console.log("LOL");
     // },
     /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
@@ -217,5 +217,4 @@ export const config: Options.Testrunner = {
     //         })
     //     })
     // }
-
 };
