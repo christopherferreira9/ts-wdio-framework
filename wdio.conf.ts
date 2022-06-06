@@ -8,7 +8,7 @@ export const config: Options.Testrunner = {
         // for all available options
         tsNodeOpts: {
             transpileOnly: true,
-            project: 'test/tsconfig.json',
+            project: 'tsconfig.json',
         },
         // tsconfig-paths is only used if "tsConfigPathsOpts" are provided, if you
         // do please make sure "tsconfig-paths" is installed as dependency
@@ -16,16 +16,16 @@ export const config: Options.Testrunner = {
         //     baseUrl: './'
         // }
     },
-    baseUrl: 'http://localhost',
-    hostname: 'localhost',
-    port: 4444,
-    path: '/wd/hub',
-    specs: [],
+    // baseUrl: 'http://localhost',
+    // hostname: 'localhost',
+    // port: 4444,
+    // path: '/wd/hub',
+    specs: ['test/specs/*.e2e.ts'],
     exclude: [],
-    maxInstances: 2,
+    maxInstances: 1,
     capabilities: [
         {
-            maxInstances: 2,
+            maxInstances: 1,
             browserName: 'firefox',
             //acceptInsecureCerts: true,
         },
@@ -35,7 +35,7 @@ export const config: Options.Testrunner = {
     waitforTimeout: 10000,
     connectionRetryTimeout: 120000,
     connectionRetryCount: 3,
-    services: [],
+    services: ['geckodriver'],
     framework: 'mocha',
     reporters: [
         'spec',

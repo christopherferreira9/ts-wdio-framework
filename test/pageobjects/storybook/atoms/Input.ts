@@ -8,7 +8,7 @@ export class Input implements IInput<string> {
         this.e = $(selector);
     }
     async setValue(value: string): Promise<void> {
-        this.e.addValue(value);
+        await this.e.addValue(value);
     }
     async getValue(): Promise<string> {
         return this.e.getAttribute('value');
