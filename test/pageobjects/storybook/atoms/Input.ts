@@ -21,8 +21,8 @@ export class Input implements IInput<string> {
         }
     }
     async waitForInputEnabled(): Promise<void> {
-        this.e.waitForExist();
-        this.e.waitForClickable();
+        await this.e.waitForExist();
+        await this.e.waitForEnabled();
     }
     async isDisplayed(): Promise<boolean> {
         return this.e.isDisplayed();
