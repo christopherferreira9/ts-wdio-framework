@@ -34,6 +34,7 @@
         "@types/node": "^14.14.37",
         "@typescript-eslint/eslint-plugin": "^5.27.0",
         "@typescript-eslint/parser": "^5.27.0",
+        "cz-conventional-changelog": "^3.3.0",
         "eslint": "^7.32.0",
         "husky": "^6.0.0",
         "prettier": "^2.2.1",
@@ -47,5 +48,10 @@
         "report:generate": "npx allure generate --clean ./allure-results/ -o ./allure-reports",
         "report:open": "npx allure open allure-reports",
         "tests:e2e": "npx del allure-results && npx wdio run ./dist/wdio.conf.js --spec ./dist/test/specs/*.js"
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
     }
 }
