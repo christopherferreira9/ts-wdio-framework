@@ -111,7 +111,8 @@ node_modules
 
 # Allure 
 allure-results/
-allure-report/
+allure-reports
+/
 
 # Docker stuff
 tmp/
