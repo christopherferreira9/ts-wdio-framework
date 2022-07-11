@@ -1,5 +1,7 @@
 import { Link } from '../storybook/atoms/Link';
+import logger from '@wdio/logger';
 
+const log = logger('MenuComponent')
 
 export class Menu {
     e: WebdriverIO.Element;

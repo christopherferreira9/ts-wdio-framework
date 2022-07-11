@@ -1,6 +1,4 @@
 import allureReporter from '@wdio/allure-reporter'
-import { type } from 'os';
-
 
 export class Utils {
 
@@ -8,8 +6,9 @@ export class Utils {
         allureReporter.addStep(stepName);
     }
 
-    static takeScreenshot(): void {
-        allureReporter.addAttachment('Screenshot', browser.takeScreenshot(), 'image/png');
+    static async takeScreenshot(): Promise<void> {
+        await browser.takeScreenshot();
+        // await allureReporter.addAttachment('Screenshot', s, 'image/png');
     }
 
 }
