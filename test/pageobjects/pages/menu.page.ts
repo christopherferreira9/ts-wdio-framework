@@ -1,4 +1,4 @@
-import { Menu } from './components/Menu';
+import { Menu } from '../components/Menu';
 import Page from './page';
 
 class MenuPage extends Page {
