@@ -1,4 +1,4 @@
-import { ILink } from "../../common/ILink";
+import { ILink } from "../../interfaces/ILink";
 
 
 export class Link implements ILink {

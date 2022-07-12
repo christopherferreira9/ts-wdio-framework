@@ -1,4 +1,4 @@
-import { IInput } from "../../common/IInput";
+import { IInput } from "../../interfaces/IInput";
 
 
 export class Input implements IInput<string> {

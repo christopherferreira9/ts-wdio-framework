@@ -1,4 +1,4 @@
-import { IButton } from "../../common/IButton";
+import { IButton } from "../../interfaces/IButton";
 
 export class Button implements IButton<string> {
     e: WebdriverIO.Element;

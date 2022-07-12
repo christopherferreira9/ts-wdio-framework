@@ -1,7 +1,7 @@
 import { Utils } from '../utils';
-import LoginPage from '../pageobjects/login.page';
-import SecurePage from '../pageobjects/secure.page';
-import MenuPage from '../pageobjects/menu.page';
+import LoginPage from '../pageobjects/pages/login.page';
+import SecurePage from '../pageobjects/pages/secure.page';
+import MenuPage from '../pageobjects/pages/menu.page';
 import logger from '@wdio/logger';
 
 const log = logger('ExampleTestPackage')

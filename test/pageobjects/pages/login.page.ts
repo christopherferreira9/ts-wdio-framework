@@ -1,6 +1,6 @@
 import Page from './page';
-import { Button } from './storybook/atoms/Button';
-import { Input } from './storybook/atoms/Input';
+import { Button } from '../storybook/atoms/Button';
+import { Input } from '../storybook/atoms/Input';
 
 class LoginPage extends Page {
     get username(): Input {
