@@ -4,8 +4,8 @@ import { ILink } from "../../common/ILink";
 export class Link implements ILink {
     e: WebdriverIO.Element
 
-    constructor(element: WebdriverIO.Element) {
-        this.e = element;
+    constructor(selector: WebdriverIO.Element) {
+        this.e = selector;
     }
 
     getValue(): Promise<any> {
