@@ -1,5 +1,7 @@
 name: CI
 on: [push, pull_request]
+env:
+  BROWSER_NAME: firefox
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,4 +21,4 @@ jobs:
           if: failure()
           with:
             name: report
-            path: allure-results
+            path: allure-results/
