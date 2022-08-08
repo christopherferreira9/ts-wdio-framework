@@ -1,5 +1,15 @@
 import type { Options } from '@wdio/types';
 
+const options = [
+    {
+        browserName: process.env.BROWSER_NAME,
+        'moz:firefoxOptions': {
+            // args: ['-headless'],
+        }
+    },
+]
+
+
 export const config: Options.Testrunner = {
     runner: 'local',
     autoCompileOpts: {
@@ -23,13 +33,7 @@ export const config: Options.Testrunner = {
     specs: ['test/specs/*.e2e.ts'],
     exclude: [],
     maxInstances: 1,
-    capabilities: [
-        {
-            maxInstances: 1,
-            browserName: 'firefox',
-            //acceptInsecureCerts: true,
-        },
-    ],
+    capabilities: options,
     logLevel: 'info',
     bail: 0,
     waitforTimeout: 10000,
