@@ -1,6 +1,6 @@
 import allureReporter from '@wdio/allure-reporter'
 
-export class Utils {
+export default class Utils {
 
     static logStep(stepName: string): void {
         allureReporter.addStep(stepName);

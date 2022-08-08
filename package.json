@@ -49,7 +49,8 @@
         "report:generate": "npx allure generate --clean ./allure-results/ -o ./allure-reports",
         "report:open": "npx allure open allure-reports",
         "tests:e2e": "npx del allure-results && npx wdio run ./dist/wdio.conf.js --spec ./dist/test/specs/*.js",
-        "clean": "npx del allure-results && npx del ./dist && npx del allure-reports"
+        "clean": "npx del allure-results && npx del ./dist && npx del allure-reports",
+        "test:ci": "wdio run wdio.conf.ts"
     },
     "config": {
         "commitizen": {

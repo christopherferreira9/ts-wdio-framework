@@ -1,4 +1,4 @@
-import { Utils } from '../utils';
+import Utils from '../Utils';
 import LoginPage from '../pageobjects/pages/login.page';
 import SecurePage from '../pageobjects/pages/secure.page';
 import MenuPage from '../pageobjects/pages/menu.page';

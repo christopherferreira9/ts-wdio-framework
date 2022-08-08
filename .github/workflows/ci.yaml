@@ -1,0 +1,23 @@
+name: CI
+on: [push, pull_request]
+env:
+  BROWSER_NAME: firefox
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+        - uses: actions/setup-node@v1
+          with:
+            node-version: 16.13.0
+        - name: Install
+          run: npm install
+        - name: Test
+          run: npm run test:ci
+        - name: Generate Report
+          run: npm run report:generate
+        - uses: actions/upload-artifact@v1
+          with:
+            name: report
+            path: allure-results/
