@@ -5,10 +5,9 @@ const options = [
         browserName: process.env.BROWSER_NAME,
         'moz:firefoxOptions': {
             args: ['-headless'],
-        }
+        },
     },
-]
-
+];
 
 export const config: Options.Testrunner = {
     runner: 'local',

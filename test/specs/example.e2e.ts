@@ -1,4 +1,4 @@
-// import { Utils } from '../utils';
+import Utils from '../utils';
 import LoginPage from '../pageobjects/pages/login.page';
 import SecurePage from '../pageobjects/pages/secure.page';
 import MenuPage from '../pageobjects/pages/menu.page';
@@ -9,7 +9,7 @@ const log = logger('ExampleTestPackage')
 describe('My Login application', () => {
     it('should login with valid credentials', async () => {
         log.info("Starting Test...")
-        // Utils.logStep("Open Login Page");
+        Utils.logStep("Open Login Page");
 
         await LoginPage.open();
 
@@ -21,11 +21,11 @@ describe('My Login application', () => {
 
     it('should work with the menu component', async () => {
         log.info("Starting Test...")
-        // Utils.logStep("Open Login Page");
+        Utils.logStep("Open Login Page");
         await MenuPage.open();
         await expect(await MenuPage.menu.links.length).toBe(4);
-        // await Utils.takeScreenshot();
-        // Utils.logStep("Doing Stuff");
+        await Utils.takeScreenshot();
+        Utils.logStep("Doing Stuff");
         expect(true).toBe(true);
     });
 });
