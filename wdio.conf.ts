@@ -4,7 +4,7 @@ const options = [
     {
         browserName: process.env.BROWSER_NAME,
         'moz:firefoxOptions': {
-            // args: ['-headless'],
+            args: ['-headless'],
         }
     },
 ]
