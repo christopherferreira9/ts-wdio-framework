@@ -1,4 +1,5 @@
 import type { Options } from '@wdio/types';
+const video = require('wdio-video-reporter');
 
 const options = [
     {
@@ -45,11 +46,15 @@ export const config: Options.Testrunner = {
         [
             'allure',
             {
-                outputDir: 'allure-results',
+                outputDir: './_results_/allure-raw',
                 disableWebdriverStepsReporting: true,
                 disableWebdriverScreenshotsReporting: false,
             },
         ],
+        [video, {
+            saveAllVideos: false,       // If true, also saves videos for successful test cases
+            videoSlowdownMultiplier: 3, // Higher to get slower videos, lower for faster videos [Value 1-100]
+        }],
     ],
     mochaOpts: {
         ui: 'bdd',
