@@ -24,6 +24,7 @@
         "wdio-chromedriver-service": "^7.3.2",
         "wdio-docker-service": "^3.2.0",
         "wdio-geckodriver-service": "^2.1.1",
+        "wdio-video-reporter": "^3.2.3",
         "wdio-wait-for": "^2.2.6",
         "webdriver": "^7.19.7",
         "webdriverio": "^7.2.3"
