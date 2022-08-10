@@ -24,6 +24,7 @@
         "wdio-chromedriver-service": "^7.3.2",
         "wdio-docker-service": "^3.2.0",
         "wdio-geckodriver-service": "^2.1.1",
+        "wdio-video-reporter": "^3.2.3",
         "wdio-wait-for": "^2.2.6",
         "webdriver": "^7.19.7",
         "webdriverio": "^7.2.3"
@@ -46,7 +47,7 @@
         "build": "npx del ./dist && npx tsc",
         "watch": "npx tsc -w",
         "code:format": "eslint . --ext .ts && prettier --check \"*.ts*\" --write",
-        "report:generate": "npx allure generate --clean ./allure-results/ -o ./allure-reports",
+        "report:generate": "npx allure generate --clean ./_results_/allure-raw/ -o ./allure-reports",
         "report:open": "npx allure open allure-reports",
         "tests:e2e": "npx del allure-results && npx wdio run ./dist/wdio.conf.js --spec ./dist/test/specs/*.js",
         "clean": "npx del allure-results && npx del ./dist && npx del allure-reports",

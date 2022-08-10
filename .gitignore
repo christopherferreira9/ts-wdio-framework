@@ -110,7 +110,7 @@ dist
 node_modules
 
 # Allure 
-allure-results/
+_results_/
 allure-reports
 /
 
