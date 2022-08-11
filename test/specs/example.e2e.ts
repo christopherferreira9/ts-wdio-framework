@@ -23,7 +23,7 @@ describe('My Login application', () => {
         log.info("Starting Test...")
         Utils.logStep("Open Login Page");
         await MenuPage.open();
-        await expect(await MenuPage.menu.links.length).toBe(1);
+        await expect(await MenuPage.menu.links.length).toBe(4);
         await Utils.takeScreenshot();
         Utils.logStep("Doing Stuff");
         expect(true).toBe(true);
