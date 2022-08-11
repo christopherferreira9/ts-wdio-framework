@@ -112,7 +112,7 @@ node_modules
 # Allure 
 _results_/
 allure-reports
-/
+_results_/
 
 # Docker stuff
 tmp/
