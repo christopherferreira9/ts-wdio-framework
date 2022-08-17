@@ -5,8 +5,12 @@ const options = [
     {
         browserName: process.env.BROWSER_NAME,
         'moz:firefoxOptions': {
-            args: ['-headless'],
+            // args: ['-headless'],
         },
+        'goog:chromeOptions': {
+            // args: ['-headless'],
+            // extensions: ['PATH/TO/EXTENSION.crx'],
+        }
     },
 ];
 
@@ -39,7 +43,18 @@ export const config: Options.Testrunner = {
     waitforTimeout: 10000,
     connectionRetryTimeout: 120000,
     connectionRetryCount: 3,
-    services: ['geckodriver'],
+    services: [
+        'geckodriver',
+        ['firefox-profile', {
+            extensions: [
+                'test/resources/metamask_firefox.xpi', // path to .xpi file
+            ],
+            'xpinstall.signatures.required': false,
+            'profileDirectory': ''  // PATH TO FIREFOX PROFILE
+            // 'browser.startup.homepage': 'https://webdriver.io',
+            // legacy: true // only use for firefox <= 55
+        }]
+    ],
     framework: 'mocha',
     reporters: [
         'spec',
