@@ -2,23 +2,14 @@ import Utils from '../Utils';
 import LoginPage from '../pageobjects/pages/login.page';
 import SecurePage from '../pageobjects/pages/secure.page';
 import MenuPage from '../pageobjects/pages/menu.page';
-import MetaMaskPage from '../pageobjects/pages/metamask.page';
 import logger from '@wdio/logger';
 
 const log = logger('ExampleTestPackage')
 
 describe('My Login application', () => {
     it('should login with valid credentials', async () => {
-        log.info("Unlocking metamask");
-
-        await MetaMaskPage.open();
-        await MetaMaskPage.fillPasswordAndSubmit();
-
-        await browser.pause(10000);
-
         await LoginPage.open();
 
-        await browser.pause(50000);
         log.info("Starting Test...")
         Utils.logStep("Open Login Page");
 
