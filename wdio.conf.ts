@@ -10,7 +10,7 @@ const options = [
         'goog:chromeOptions': {
             // args: ['-headless'],
             // extensions: ['PATH/TO/EXTENSION.crx'],
-        }
+        },
     },
 ];
 
@@ -45,15 +45,18 @@ export const config: Options.Testrunner = {
     connectionRetryCount: 3,
     services: [
         'geckodriver',
-        ['firefox-profile', {
-            extensions: [
-                'test/resources/metamask_firefox.xpi', // path to .xpi file
-            ],
-            'xpinstall.signatures.required': false,
-            'profileDirectory': ''  // PATH TO FIREFOX PROFILE
-            // 'browser.startup.homepage': 'https://webdriver.io',
-            // legacy: true // only use for firefox <= 55
-        }]
+        [
+            'firefox-profile',
+            {
+                extensions: [
+                    'test/resources/metamask_firefox.xpi', // path to .xpi file
+                ],
+                'xpinstall.signatures.required': false,
+                profileDirectory: '', // PATH TO FIREFOX PROFILE
+                // 'browser.startup.homepage': 'https://webdriver.io',
+                // legacy: true // only use for firefox <= 55
+            },
+        ],
     ],
     framework: 'mocha',
     reporters: [
@@ -66,10 +69,13 @@ export const config: Options.Testrunner = {
                 disableWebdriverScreenshotsReporting: false,
             },
         ],
-        [video, {
-            saveAllVideos: false,       // If true, also saves videos for successful test cases
-            videoSlowdownMultiplier: 3, // Higher to get slower videos, lower for faster videos [Value 1-100]
-        }],
+        [
+            video,
+            {
+                saveAllVideos: false, // If true, also saves videos for successful test cases
+                videoSlowdownMultiplier: 3, // Higher to get slower videos, lower for faster videos [Value 1-100]
+            },
+        ],
     ],
     mochaOpts: {
         ui: 'bdd',
